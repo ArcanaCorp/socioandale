@@ -1,0 +1,1 @@
+export const URL_API = process.env.REACT_APP_MODE === 'development' ? process.env.REACT_APP_API_DEVELOPMENT : process.env.REACT_APP_API_PRODUCTION

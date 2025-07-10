@@ -1,0 +1,23 @@
+.__header_home {
+    width: 100%;
+    padding: 1rem;
+}
+
+.__header_home .__header_tit_home {
+    font-size: 1.8rem;
+}
+
+.__header_home .__header_tit_home .__header_wlc_home {
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--color-gray);
+}
+
+.__main_home {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.__main_home::-webkit-scrollbar {
+    display: none;
+}

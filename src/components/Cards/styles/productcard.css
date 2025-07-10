@@ -1,0 +1,42 @@
+.__card {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+}
+
+.__card .__card_img {
+    width: 100%;
+    height: 160px;
+}
+
+.__card .__card_img img {
+    height: 100%;
+}
+
+.__card .__card_txt {
+    padding: .8rem;
+}
+
+.__card .__card_txt h2 {
+    font-size: 1rem;
+}
+
+.__card .__card_txt .__card_actions {
+    width: 100%;
+    display: flex;
+    gap: .5rem;
+    margin: .5rem 0;
+}
+
+.__card .__card_txt .__card_actions button {
+    width: 100%;
+    height: 40px;
+    background: none;
+    border-radius: var(--radius-sm);
+}
+
+.__card .__card_txt .__card_actions .__btn_edit .tabler-icon {
+    stroke: #0037ff;
+}

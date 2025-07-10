@@ -1,0 +1,33 @@
+.__btn {
+    --height: var(--height-button);
+    cursor: pointer;
+    height: var(--height);
+}
+
+.__btn_block {
+    width: 100%;
+}
+
+.__btn_primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+}
+
+.__btn_rounded_md {
+    border-radius: var(--radius-md);
+}
+
+.__btn_rounded_lg {
+    border-radius: var(--radius-lg);
+}
+
+.__btn_disabled {
+    opacity: .8;
+    cursor: not-allowed;
+}
+
+/* ICONS */
+.tabler-icon {
+    stroke-width: 1.2;
+    stroke: var(--color-primary);
+}

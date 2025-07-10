@@ -1,0 +1,32 @@
+.__auth_header {
+    width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.__auth_header .__tit {
+    font-size: 2.5rem;
+}
+
+.__auth_header .__tit .__tit_primary {
+    font-weight: bolder;
+    color: var(--color-dark);
+}
+
+.__auth_header .__tit .__tit_secondary {
+    font-weight: bolder;
+    color: var(--color-primary);
+}
+
+.__auth_header .__txt {
+    font-size: .9rem;
+    color: var(--color-gray);
+}
+
+.__auth_main {
+    width: 100%;
+    padding: 1rem;
+}

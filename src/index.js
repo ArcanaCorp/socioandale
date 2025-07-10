@@ -1,17 +1,97 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from "react-dom/client"
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { UIProvider } from "./context/UIContext"
+import { AuthProvider } from "./context/AuthContext"
+import { DBProvider } from "./context/DBContext"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import OnlineGuard from "./guards/OnlineGuard"
+import AuthGuard from "./guards/AuthGuard"
+
+import AuthLayout from "./app/auth/layout"
+import TabLayout from "./app/tabs/layout"
+
+import Login from "./app/auth/Login"
+import Verify from "./app/auth/Verify"
+import Complete from "./app/auth/Complete"
+
+import Home from "./app/tabs/Home"
+import Products from "./app/tabs/Products"
+import Orders from "./app/tabs/Orders"
+import Profile from "./app/tabs/Profile"
+
+import ErrorPage from "./layout/ui/ErrorPage"
+
+import './theme/variables.css'
+import './theme/global.css'
+import './theme/theme.css'
+import './theme/constants.css'
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <OnlineGuard><AuthGuard><TabLayout/></AuthGuard></OnlineGuard>,
+        children: [
+            {
+                index: true,
+                element: <Home/>
+            },
+            {
+                path: 'products',
+                element: <Products/>
+            },
+            {
+                path: 'orders',
+                element: <Orders/>
+            },
+            {
+                path: 'profile',
+                element: <Profile/>
+            }
+        ],
+        errorElement: <ErrorPage/>,
+    },
+    {
+        path: '/login',
+        element: <OnlineGuard><AuthGuard><AuthLayout/></AuthGuard></OnlineGuard>,
+        children: [
+            {
+                index: true,
+                element: <Login/>
+            },
+            {
+                path: 'verify',
+                element: <Verify/>
+            },
+            {
+                path: 'complete',
+                element: <Complete/>
+            },
+            {
+                path: 'photo',
+                element: <h1>Photo</h1>
+            }
+        ]
+    }
+])
+
+const root = createRoot(document.getElementById('root'))
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    <>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+        <UIProvider>
+
+            <AuthProvider>
+
+                <DBProvider>
+            
+                    <RouterProvider router={router} />
+                
+                </DBProvider>
+            
+            </AuthProvider>
+        
+        </UIProvider>
+
+    </>
+)
