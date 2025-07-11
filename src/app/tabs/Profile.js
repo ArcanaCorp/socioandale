@@ -12,11 +12,7 @@ export default function Profile () {
     const { user, contextLogout } = useAuth();
 
     const handleNativeShare = () => {
-        const shareData = {
-            title: 'Mira mi negocio en Kuyaay',
-            text: 'Échale un vistazo a mi negocio en Kuyaay 🚀',
-            url: `https://kuyaay.com/${user?.short || user?.sub}`
-        };
+        const shareData = `Mira mi negocio en *Ándale*\nÉchale un vistazo a mi negocio en Ándale\n🚀https://kuyaay.com/${user?.short || user?.sub}`;
 
         if (navigator.share) {
             navigator.share(shareData)

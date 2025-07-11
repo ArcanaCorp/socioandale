@@ -19,6 +19,9 @@ import Products from "./app/tabs/Products"
 import Orders from "./app/tabs/Orders"
 import Profile from "./app/tabs/Profile"
 
+import SlugLayout from "./app/landing/layout"
+import SlugPage from "./app/landing/SlugPage"
+
 import ErrorPage from "./layout/ui/ErrorPage"
 
 import './theme/variables.css'
@@ -71,6 +74,17 @@ const router = createBrowserRouter([
                 element: <h1>Photo</h1>
             }
         ]
+    },
+    {
+        path: '/:slug',
+        element: <OnlineGuard><SlugLayout/></OnlineGuard>,
+        children: [
+            {
+                index: true,
+                element: <SlugPage/>
+            }
+        ],
+        errorElement: <ErrorPage/>,
     }
 ])
 
