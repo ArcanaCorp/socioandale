@@ -1,11 +1,15 @@
-import { IconBook, IconCookie, IconDatabase, IconPencil, IconShare3 } from '@tabler/icons-react';
-import { useAuth } from '../../context/AuthContext'
-import './styles/profile.css'
 import { toast } from 'sonner';
+import { useNavigate } from "react-router-dom";
+import { IconBook, IconCookie, IconDatabase, IconPencil, IconShare3 } from '@tabler/icons-react';
+
+import { useAuth } from '../../context/AuthContext'
+
+import './styles/profile.css'
 
 export default function Profile () {
 
-    const { user } = useAuth();
+    const navigate = useNavigate();
+    const { user, contextLogout } = useAuth();
 
     const handleNativeShare = () => {
         const shareData = {
@@ -22,6 +26,20 @@ export default function Profile () {
             toast('La función de compartir no es compatible en este dispositivo.');
         }
     };
+
+    const handleLogout = async () => {
+        try {
+            
+            const data = await contextLogout();
+            if (!data.ok) return toast.warning('Alerta', { description: data.message })
+
+                toast.success('Éxito', { description: data.message })
+                navigate('/login', { replace: true })
+
+        } catch (error) {
+            toast.error('Error', { description: error.message })
+        }
+    }
 
     return (
 
@@ -93,7 +111,7 @@ export default function Profile () {
                     </ul>
                 </section>
 
-                <button className={`__btn __btn_block __btn_primary __btn_rounded_md`}>Cerrar sesión</button>
+                <button className={`__btn __btn_block __btn_primary __btn_rounded_md`} onClick={handleLogout}>Cerrar sesión</button>
                 
             </main>
 
