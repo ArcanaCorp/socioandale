@@ -57,6 +57,7 @@ export default function EditProductModal () {
             file,
             preview: URL.createObjectURL(file),
         }));
+        console.log(previews);
         //setNewImages(prev => [...prev, ...previews]);
     };
 
