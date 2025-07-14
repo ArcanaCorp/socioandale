@@ -28,6 +28,7 @@ import './theme/variables.css'
 import './theme/global.css'
 import './theme/theme.css'
 import './theme/constants.css'
+import { SlugProvider } from "./context/SlugContext"
 
 const router = createBrowserRouter([
     {
@@ -98,8 +99,12 @@ root.render(
             <AuthProvider>
 
                 <DBProvider>
+
+                    <SlugProvider>
             
-                    <RouterProvider router={router} />
+                        <RouterProvider router={router} />
+                    
+                    </SlugProvider>
                 
                 </DBProvider>
             

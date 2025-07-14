@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { Helmet } from "react-helmet";
 import { Outlet, useParams } from "react-router-dom";
 import { serviceAnalyticsSocials } from "../../services/analytics.service";
+import { Toaster } from "sonner";
 
 export default function SlugLayout () {
 
@@ -28,12 +28,10 @@ export default function SlugLayout () {
     return (
 
         <>
-
-            <Helmet>
-                <title>{slug} | {document.title}</title>
-            </Helmet>
         
             <Outlet/>
+
+            <Toaster position="top-center" richColors />
 
         </>
 
