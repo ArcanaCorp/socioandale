@@ -13,16 +13,20 @@ export default function Header ({ info }) {
     }
 
     const handleNativeShare = () => {
-            
-        const shareData = `Mira mi negocio en *Ándale*\nÉchale un vistazo a mi negocio en *Ándale*\n🚀https://kuyaay.com/${info?.short || info?.sub}`;
-    
+        const text = `Mira mi negocio en *Ándale* 🚀\nÉchale un vistazo:\nhttps://socio.kuyaay.com/${info?.short || info?.sub}`;
+
         if (navigator.share) {
-            navigator.share(shareData)
+            navigator.share({
+                title: 'Mi negocio en Ándale',
+                text,
+                url: `https://socio.kuyaay.com/${info?.short || info?.sub}`
+            })
             .then(() => toast.success('Compartido con éxito'))
-            .catch((err) => toast.error('Error al compartir:', err));
+            .catch((err) => toast.error('Error al compartir'));
         } else {
-            const url = `https://wa.me/?text=${encodeURIComponent(shareData)}`
-            window.open(url, '_blank')
+            // Fallback a WhatsApp
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+            window.open(whatsappUrl, '_blank');
         }
     };
 
