@@ -14,15 +14,21 @@ export default function Profile () {
     const { user, contextLogout } = useAuth();
 
     const handleNativeShare = () => {
-        
-        const shareData = `Mira mi negocio en *Ándale*\nÉchale un vistazo a mi negocio en *Ándale*\n🚀https://kuyaay.com/${user?.short || user?.sub}`;
-
+        const text = `Mira mi negocio en *Ándale* 🚀\nÉchale un vistazo:\n`;
+        const url = `https://socio.kuyaay.com/${user?.short || user?.sub}`
+    
         if (navigator.share) {
-            navigator.share(shareData)
+            navigator.share({
+                title: 'Mi negocio en Ándale',
+                text,
+                url
+            })
             .then(() => toast.success('Compartido con éxito'))
-            .catch((err) => toast.error('Error al compartir:', err));
+            .catch((err) => toast.error('Error al compartir'));
         } else {
-            toast('La función de compartir no es compatible en este dispositivo.');
+            const message = `${text}${url}`
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
     };
 

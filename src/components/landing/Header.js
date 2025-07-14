@@ -13,7 +13,7 @@ export default function Header ({ info }) {
     }
 
     const handleNativeShare = () => {
-        const text = `Mira mi negocio en *Ándale* 🚀\nÉchale un vistazo:\nhttps://socio.kuyaay.com/${info?.short || info?.sub}`;
+        const text = `Mira mi negocio en *Ándale* 🚀\nÉchale un vistazo:\n`;
 
         if (navigator.share) {
             navigator.share({
