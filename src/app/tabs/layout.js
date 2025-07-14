@@ -5,9 +5,11 @@ import { IconListDetails, IconShoppingBag, IconSmartHome, IconUserCircle } from 
 import { useUI } from "../../context/UIContext";
 
 import FilterModal from "../../components/modals/FilterModal";
+import NewProductModal from "../../components/modals/NewProductModal";
 import DeleteProductModal from "../../components/modals/DeleteProductModal";
 
 import './styles/layout.css'
+import EditProductModal from "../../components/modals/EditProductModal";
 
 export default function TabLayout () {
 
@@ -58,6 +60,8 @@ export default function TabLayout () {
 
                     {viewModal.type === 'filters' && ( <FilterModal/> )}
                     {viewModal.type === 'deleteProduct' && ( <DeleteProductModal/> ) }
+                    {viewModal.type === 'newProduct' && ( <NewProductModal/> )}
+                    {viewModal.type === 'editProduct' && ( <EditProductModal/> )}
                     
                 </div>
 

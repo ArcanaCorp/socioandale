@@ -13,6 +13,7 @@
 
 .__card .__card_img img {
     height: 100%;
+    object-fit: cover;
 }
 
 .__card .__card_txt {
@@ -23,20 +24,42 @@
     font-size: 1rem;
 }
 
-.__card .__card_txt .__card_actions {
+.__card .__card_txt pre {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Número de líneas a mostrar */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.__card .__card_actions {
     width: 100%;
     display: flex;
     gap: .5rem;
+    padding: 0 .8rem;
     margin: .5rem 0;
 }
 
-.__card .__card_txt .__card_actions button {
+.__card .__card_actions button {
     width: 100%;
     height: 40px;
+    display: flex;
+    gap: .5rem;
     background: none;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--radius-sm);
 }
 
-.__card .__card_txt .__card_actions .__btn_edit .tabler-icon {
+.__card .__card_actions .__btn_delete {
+    color: var(--color-primary);
+    background-color: rgb(249, 0, 80, .2);
+}
+
+.__card .__card_actions .__btn_edit {
+    color: #0037ff;
+    background-color: rgb(0, 55, 255, .2);
+}
+
+.__card .__card_actions .__btn_edit .tabler-icon {
     stroke: #0037ff;
 }

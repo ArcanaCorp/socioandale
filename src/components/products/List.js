@@ -10,7 +10,7 @@ export default function List () {
         <div className="__grd_list">
         
             {products?.list.map((p) => (
-                <ProductCard key={p.id} image={p.images} name={p.name} />
+                <ProductCard key={p.id} image={p.images} p={p} />
             ))}
         
         </div>

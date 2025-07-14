@@ -1,0 +1,115 @@
+.__form_modal {
+    width: 100%;
+}
+
+.__form_modal .__form_group_modal {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.__form_modal .__form_group_modal label {
+    font-size: .8rem;
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: var(--color-gray);
+}
+
+.__form_modal .__form_group_modal .__form_flex_images {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.__form_modal .__form_group_modal .__form_flex_images::-webkit-scrollbar {
+    display: none;
+}
+
+.__form_modal .__form_group_modal .__form_flex_images .__charge {
+    display: grid;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    place-items: center;
+    border-radius: var(--radius-md);
+    background-color: var(--color-secondary);
+}
+
+.__form_modal .__form_group_modal .__form_flex_images .__charge .tabler-icon {
+    stroke: var(--color-dark);
+}
+
+.__form_modal .__form_group_modal .__form_flex_images .__image_preview {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--radius-md);
+}
+
+.__form_modal .__form_group_modal .__form_flex_images .__image_preview .__image_delete {
+    position: absolute;
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+}
+
+.__form_modal .__form_group_modal .__form_control_modal {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.__form_modal .__form_group_modal .__form_control_modal input,
+.__form_modal .__form_group_modal .__form_control_modal select {
+    width: 100%;
+    height: inherit;
+    padding: 0 1rem;
+    border-radius: inherit;
+}
+
+.__form_modal .__form_group_modal .__form_control_modal .__entry_edit {
+    padding-right: 60px;
+} 
+
+.__form_modal .__form_group_modal .__form_control_modal-area {
+    height: 120px;
+}
+
+.__form_modal .__form_group_modal .__form_control_modal-area textarea {
+    width: 100%;
+    padding: 1rem;
+    resize: none;
+    height: inherit;
+}
+
+.__form_modal .__form_group_modal .__form_control_modal .__btn_edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: none;
+}
+
+.__form_modal .__form_group_modal .__form_control_modal input:focus,
+.__form_modal .__form_group_modal .__form_control_modal select:focus {
+    border: 2px solid var(--color-primary);
+}
+
+.__form_modal .__form_group_modal .__btn {
+    width: 100%;
+    height: 60px;
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    background-color: var(--color-primary);
+}

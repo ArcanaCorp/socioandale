@@ -17,6 +17,8 @@ export const DBProvider = ({ children }) => {
         message: ''
     })
 
+    const [ productChoosed, setProductChoosed ] = useState('');
+
     const getCategories = useCallback( async () => {
         try {
             
@@ -48,6 +50,8 @@ export const DBProvider = ({ children }) => {
         }
     }, [])
 
+    const choosedProduct = (id) => setProductChoosed(id)
+
     useEffect(() => {
         if (categories.length === 0) {
             getCategories();
@@ -62,7 +66,11 @@ export const DBProvider = ({ children }) => {
 
     const contextValue = {
         categories,
-        products
+        products,
+        productChoosed,
+        choosedProduct,
+        getProducts,
+        getCategories
     }
 
     return (
